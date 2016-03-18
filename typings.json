@@ -1,0 +1,8 @@
+{
+  "name": "linq",
+  "main": "./linq.d.ts",
+  "homepage": "https://github.com/dflor003/typed-linq",
+  "ambientDevDependencies": {
+    "jasmine": "registry:dt/jasmine#2.2.0+20160317120654"
+  }
+}

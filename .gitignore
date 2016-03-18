@@ -1,0 +1,13 @@
+# JetBrains IDE
+.idea
+
+# Libraries
+node_modules
+
+# External Typings
+typings
+
+# Compiled
+test/**/*.js
+test/browser.d.ts
+test/main.d.ts
