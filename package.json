@@ -1,13 +1,18 @@
 {
   "scripts": {
     "build": "typings bundle -o test",
-    "test": "ts-node test/test.ts"
+    "test": "npm run build && tsc -p . && mocha test/test.js"
   },
   "private": true,
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
     "ts-node": "^0.5.5",
     "tslint": "^3.5.0",
     "typescript": "^1.8.7",
     "typings": "^0.7.5"
+  },
+  "dependencies": {
+    "linq": "^3.0.5"
   }
 }
