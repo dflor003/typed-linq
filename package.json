@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "typings": "rm -rf ./typings && typings install",
     "build": "typings bundle -o test",
     "test": "npm run build && tsc -p . && mocha test/test.js"
   },

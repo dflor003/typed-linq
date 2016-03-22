@@ -1,4 +1,5 @@
 /// <reference path="./main.d.ts"/>
+/// <reference path="../typings/main/ambient/mocha/index.d.ts"/>
 
 import * as Enumerable from 'linq';
 import * as chai from 'chai';
@@ -6,8 +7,8 @@ import {IEnumerable} from 'linq';
 
 let expect = chai.expect;
 
-describe('Linq.js tests', function () {
-    it('Projection and Filtering Methods', function () {
+describe('Linq.js Type Defs', function () {
+    it('should have projection and filtering method type completion', function () {
         expect(Enumerable.from([1, 2, 3, 4]).toJoinedString(',')).to.equal('1,2,3,4');
         expect(Enumerable.range(1, 4).where(item => item > 2).toJoinedString(',')).to.equal('3,4');
         expect(Enumerable.range(1, 4).where('(item) => item > 2').toJoinedString(',')).to.equal('3,4');
@@ -17,7 +18,7 @@ describe('Linq.js tests', function () {
 
     });
 
-    it('Join Methods', function () {
+    it('should do type completion for joins', function () {
         let other = Enumerable.from(['a', 'aaa']);
         let actual: IEnumerable<string> = Enumerable
             .range(1, 4)
@@ -25,12 +26,12 @@ describe('Linq.js tests', function () {
         expect(actual.toJoinedString(',')).to.equal('1:a,3:aaa');
     });
 
-    it('Set Methods', function () {
+    it('should work for set methods', function () {
         expect(Enumerable.range(2, 4, 2).all((item: number) => item % 2 == 0)).to.equal(true);
         expect(Enumerable.range(1, 4).intersect(Enumerable.range(3, 4)).toJoinedString(',')).to.equal('3,4');
     });
 
-    it('Ordering Methods', function () {
+    it('should work for ordering methods', function () {
         expect(Enumerable.from(
             [
                 { name: 'marcin', age: 15 },
@@ -39,7 +40,7 @@ describe('Linq.js tests', function () {
             ]).orderBy((p) => p.name).thenByDescending((p) => p.age).select((p) => p.name + p.age).toJoinedString(',')).to.equal('albert51,marcin30,marcin15');
     });
 
-    it('Grouping Methods', function () {
+    it('should work for grouping methods', function () {
         expect(Enumerable.from(['a', 'aa', 'aaa', 'a', 'a', 'aaa'])
             .groupBy((item: string) => item.length)
             .select(g => {

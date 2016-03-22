@@ -9,5 +9,8 @@
     "test/test.ts",
     "typings/main.d.ts",
     "test/main.d.ts"
+  ],
+  "exclude": [
+    "typings/browser"
   ]
 }
